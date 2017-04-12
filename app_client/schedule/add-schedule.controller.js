@@ -5,18 +5,10 @@
         .controller('addScheduleCtrl', addScheduleCtrl);
 
     addScheduleCtrl.$inject = ['$location', 'kspuData'];
-    function addScheduleCtrl($location, kspuData) {
+    function addScheduleCtrl($location, subject) {
         var vm = this;
 
-        vm.user = {};
 
-        kspuData.getProfile()
-            .success(function(data) {
-                vm.user = data;
-            })
-            .error(function (e) {
-                console.log(e);
-            });
     }
 
 })();
