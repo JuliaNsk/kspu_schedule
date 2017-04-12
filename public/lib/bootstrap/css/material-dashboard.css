@@ -11598,3 +11598,7 @@ footer .btn {
     max-width: 211px;
   }
 }
+
+.full-page-background {
+  background-image: url("../../../images/login.jpeg");
+}

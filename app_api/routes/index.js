@@ -19,6 +19,9 @@ router.post('/login', ctrlAuth.login);
 
 router.post('/add-schedule', ctrlSchedule.schedule);
 
+router.post('/add-schedule', ctrlSchedule.schedule);
+
+
 
 
 module.exports = router;

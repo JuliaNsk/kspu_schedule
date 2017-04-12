@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+
+.full-page-background {
+  background-image: url("../../public/images/login.jpeg");
+}
