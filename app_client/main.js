@@ -29,6 +29,11 @@
         controller: 'addScheduleCtrl',
         controllerAs: 'vm'
       })
+        .when('/subjects', {
+        templateUrl: '/subjects/subjects.view.html',
+        controller: 'subjectsCtrl',
+        controllerAs: 'vm'
+      })
       .otherwise({redirectTo: '/'});
 
     // use the HTML5 History API

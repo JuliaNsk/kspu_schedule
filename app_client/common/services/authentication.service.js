@@ -11,6 +11,13 @@
       $window.localStorage['kspu-token'] = token;
     };
 
+  var setUserData = function (data) {
+      $window.localStorage['kspu-userData'] = data;
+    };
+  var getUserData = function () {
+     return $window.localStorage['kspu-userData'];
+    };
+
     var getToken = function () {
       return $window.localStorage['kspu-token'];
     };
@@ -52,6 +59,7 @@
     login = function(user) {
       return $http.post('/api/login', user).success(function(data) {
         saveToken(data.token);
+        setUserData(data)
       });
     };
 
@@ -59,15 +67,17 @@
       $window.localStorage.removeItem('kspu-token');
     };
 
-    return {
-      currentUser : currentUser,
-      saveToken : saveToken,
-      getToken : getToken,
-      isLoggedIn : isLoggedIn,
-      register : register,
-      login : login,
-      logout : logout
-    };
+      return {
+          currentUser: currentUser,
+          saveToken: saveToken,
+          getUserData: getUserData,
+          setUserData: setUserData,
+          getToken: getToken,
+          isLoggedIn: isLoggedIn,
+          register: register,
+          login: login,
+          logout: logout
+      };
   }
 
 

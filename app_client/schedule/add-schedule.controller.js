@@ -4,11 +4,19 @@
         .module('kspuApp')
         .controller('addScheduleCtrl', addScheduleCtrl);
 
-    addScheduleCtrl.$inject = ['$location', 'kspuData'];
-    function addScheduleCtrl($location, subject) {
+    addScheduleCtrl.$inject = ['$location', 'subjects'];
+    function addScheduleCtrl($location, subjects) {
         var vm = this;
 
-
+        vm.addSubject = function () {
+            subjects.addSubjects()
+                .error(function(err){
+                    alert(err);
+                })
+                .then(function(){
+                    $location.path('profile');
+                });
+        }
     }
 
 })();
