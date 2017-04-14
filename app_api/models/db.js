@@ -49,3 +49,4 @@ process.on('SIGTERM', function() {
 require('./users');
 require('./subjects');
 require('./groups');
+require('./organizations');

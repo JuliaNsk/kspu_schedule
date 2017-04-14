@@ -1,0 +1,177 @@
+<navigation></navigation>
+<div class="main-panel">
+    <nav class="navbar navbar-transparent navbar-absolute">
+        <div class="container-fluid">
+            <div class="navbar-minimize">
+                <button id="minimizeSidebar" class="btn btn-round btn-white btn-fill btn-just-icon">
+                    <i class="material-icons visible-on-sidebar-regular">more_vert</i>
+                    <i class="material-icons visible-on-sidebar-mini">view_list</i>
+                </button>
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="material-icons">dashboard</i>
+                            <p class="hidden-lg hidden-md">Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="material-icons">person</i>
+                            <p class="hidden-lg hidden-md">Profile</p>
+                        </a>
+                    </li>
+                    <li class="separator hidden-lg hidden-md"></li>
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group form-search is-empty">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="material-input"></span>
+                        <span class="material-input"></span></div>
+                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                        <i class="material-icons">search</i>
+                        <div class="ripple-container"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+
+        <div class="container-fluid">
+            <div class="row">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Додати організацію</button>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title"></h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card">
+                                    <form method="get" action="/" class="form-horizontal">
+                                        <div class="card-header card-header-text" data-background-color="purple">
+                                            <h4 class="card-title">Нова організація</h4>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="row">
+                                                <label class="col-sm-4 label-on-left">Назва організації</label>
+                                                <div class="col-sm-8">
+                                                    <div class="form-group label-floating is-empty">
+                                                        <label class="control-label"></label>
+                                                        <input type="text" class="form-control" value=""
+                                                               ng-model="vm.newOrganization.name">
+                                                        <span class="help-block"></span>
+                                                        <span class="material-input"></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                        ng-click="vm.addOrganization()">Додати
+                                </button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Закрити</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="purple">
+                        <i class="material-icons">account_balance</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">Організації</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="text-primary">
+                                <tr>
+                                    <th>Назва</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="organization in vm.organizations">
+                                    <td>{{organization.name}}</td>
+                                    <td>
+                                        <button class="btn btn-warning btn-xs" data-toggle="modal"
+                                                data-target="#edit-organization" ng-click="vm.editModal(organization)"><i
+                                                class="material-icons">edit</i>
+                                        </button>
+                                        <div class="modal fade" id="edit-organization">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close"
+                                                                data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title"></h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="card">
+                                                            <form method="get" action="/" class="form-horizontal">
+                                                                <div class="card-header card-header-text"
+                                                                     data-background-color="purple">
+                                                                    <h4 class="card-title">Редагування</h4>
+                                                                </div>
+                                                                <div class="card-content">
+                                                                    <div class="row">
+                                                                        <label class="col-sm-4 label-on-left">Назва організації</label>
+                                                                        <div class="col-sm-8">
+                                                                            <div class="form-group label-floating is-empty">
+                                                                                <label class="control-label"></label>
+                                                                                <input type="text" class="form-control"
+                                                                                       value=""
+                                                                                       ng-model="vm.organizationData.name">
+                                                                                <span class="help-block"></span>
+                                                                                <span class="material-input"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary"
+                                                                data-dismiss="modal"
+                                                                ng-click="vm.editOrganization()">Зберегти
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger"
+                                                                data-dismiss="modal">Закрити
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <button class="btn btn-danger btn-xs" ng-click="vm.removeOrganization(organization._id)">
+                                            <i class="material-icons">delete</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

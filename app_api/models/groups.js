@@ -8,7 +8,17 @@ var groupsSchema = new mongoose.Schema({
     },
     specialization: {
         type: 'string'
+    },
+    department: {
+        type: 'string'
+    },
+    monitor: {
+        type: 'string'
+    },
+    curator: {
+        type: 'string'
     }
+
 
 });
 

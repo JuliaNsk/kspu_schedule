@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
-var Subjects = mongoose.model('Subjects');
+var Organizations = mongoose.model('Organizations');
 
 module.exports.create = function(req, res) {
 
-    var subjects = new Subjects(req.body);
+    var organizations = new Organizations(req.body);
 
 
-    subjects.save(function(err) {
+    organizations.save(function(err) {
         res.json({
             "name" : req.body.name
         });
@@ -15,16 +15,15 @@ module.exports.create = function(req, res) {
 };
 
 module.exports.get = function(req, res) {
-    Subjects
+    Organizations
         .find({})
-        .populate('teachers')
         .exec(function(err, subj) {
             res.status(200).json(subj);
         });
 };
 
 module.exports.delete = function(req, res) {
-    Subjects
+    Organizations
         .deleteOne({_id: req.params.id})
         .exec(function (err, subj) {
             res.status(200).json(subj);
@@ -32,7 +31,7 @@ module.exports.delete = function(req, res) {
 };
 
 module.exports.update = function(req, res) {
-    Subjects
+    Organizations
         .updateOne({_id: req.params.id}, req.body)
         .exec(function (err, subj) {
             res.status(200).json(subj);

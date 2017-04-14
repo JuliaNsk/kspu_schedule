@@ -9,7 +9,6 @@
 
         var addSubjects = function (data) {
             return $http.post('/api/subjects', data);
-                // {name:'Теория програмирования', hours:24, credits: 3.5, labs: 8, lecture: 12, teacher: "58ee2b93ebfb6a599fc2e90a"});
         };
 
         var getSubjects = function () {
@@ -20,9 +19,19 @@
             });
         };
 
+        var removeSubjects = function (data) {
+            return $http.delete('/api/subjects/' + data);
+        };
+
+        var editSubjects = function (data) {
+            return $http.put('/api/subjects/' + data._id, data);
+        };
+
         return {
             addSubjects : addSubjects,
-            getSubjects : getSubjects
+            getSubjects : getSubjects,
+            removeSubjects: removeSubjects,
+            editSubjects: editSubjects
         };
     }
 

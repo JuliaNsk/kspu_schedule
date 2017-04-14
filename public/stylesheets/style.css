@@ -1,12 +1,11 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.sidebar {
+  position: fixed;
 }
 
-.full-page-background {
-  background-image: url("../../public/images/login.jpeg");
+.modal-backdrop {
+  display: none;
 }

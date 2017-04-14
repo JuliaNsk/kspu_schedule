@@ -34,6 +34,16 @@
         controller: 'subjectsCtrl',
         controllerAs: 'vm'
       })
+        .when('/groups', {
+        templateUrl: '/groups/groups.view.html',
+        controller: 'groupsCtrl',
+        controllerAs: 'vm'
+      })
+        .when('/organizations', {
+        templateUrl: '/organizations/organizations.view.html',
+        controller: 'organizationsCtrl',
+        controllerAs: 'vm'
+      })
       .otherwise({redirectTo: '/'});
 
     // use the HTML5 History API
@@ -47,7 +57,7 @@
       }
     });
   }
-  
+
   angular
     .module('kspuApp')
     .config(['$routeProvider', '$locationProvider', config])

@@ -50,7 +50,7 @@
 
         <div class="container-fluid">
             <div class="row">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Додати дисципліну</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Додати групу</button>
                 <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -62,72 +62,71 @@
                                 <div class="card">
                                     <form method="get" action="/" class="form-horizontal">
                                         <div class="card-header card-header-text" data-background-color="purple">
-                                            <h4 class="card-title">Нова диципліниа</h4>
+                                            <h4 class="card-title">Нова група</h4>
                                         </div>
                                         <div class="card-content">
                                             <div class="row">
-                                                <label class="col-sm-4 label-on-left">Назва диципліни</label>
+                                                <label class="col-sm-4 label-on-left">Факультет</label>
                                                 <div class="col-sm-8">
                                                     <div class="form-group label-floating is-empty">
                                                         <label class="control-label"></label>
                                                         <input type="text" class="form-control" value=""
-                                                               ng-model="vm.newSubject.name">
+                                                               ng-model="vm.newGroup.department">
                                                         <span class="help-block"></span>
                                                         <span class="material-input"></span></div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <label class="col-sm-4 label-on-left">Години</label>
+                                                <label class="col-sm-4 label-on-left">Спеціальність</label>
                                                 <div class="col-sm-8">
                                                     <div class="form-group label-floating is-empty">
                                                         <label class="control-label"></label>
                                                         <input type="text" class="form-control" value=""
-                                                               ng-model="vm.newSubject.hours">
+                                                               ng-model="vm.newGroup.specialization">
                                                         <span class="help-block"></span>
                                                         <span class="material-input"></span></div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <label class="col-sm-4 label-on-left">Кредити</label>
+                                                <label class="col-sm-4 label-on-left">Номер групи</label>
                                                 <div class="col-sm-8">
                                                     <div class="form-group label-floating is-empty">
                                                         <label class="control-label"></label>
                                                         <input type="text" class="form-control" value=""
-                                                               ng-model="vm.newSubject.credits">
+                                                               ng-model="vm.newGroup.number">
                                                         <span class="help-block"></span>
                                                         <span class="material-input"></span></div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <label class="col-sm-4 label-on-left">Лабораторні(год.)</label>
+                                                <label class="col-sm-4 label-on-left">Староста</label>
                                                 <div class="col-sm-8">
                                                     <div class="form-group label-floating is-empty">
                                                         <label class="control-label"></label>
                                                         <input type="text" class="form-control" value=""
-                                                               ng-model="vm.newSubject.labs">
+                                                               ng-model="vm.newGroup.monitor">
                                                         <span class="help-block"></span>
                                                         <span class="material-input"></span></div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <label class="col-sm-4 label-on-left">Лекції(год.)</label>
+                                                <label class="col-sm-4 label-on-left">Куратор</label>
                                                 <div class="col-sm-8">
                                                     <div class="form-group label-floating is-empty">
                                                         <label class="control-label"></label>
                                                         <input type="text" class="form-control" value=""
-                                                               ng-model="vm.newSubject.lecture">
+                                                               ng-model="vm.newGroup.curator">
                                                         <span class="help-block"></span>
                                                         <span class="material-input"></span></div>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </form>
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                        ng-click="vm.addSubject()">Додати
+                                        ng-click="vm.addGroup()">Додати
                                 </button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Закрити</button>
                             </div>
@@ -138,33 +137,35 @@
 
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="purple">
-                        <i class="material-icons">subject</i>
+                        <i class="material-icons">group</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Дисципліни</h4>
+                        <h4 class="card-title">Групи</h4>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="text-primary">
                                 <tr>
-                                    <th>Назва</th>
-                                    <th>Г/К</th>
-                                    <th>Лаб/Лек</th>
-                                    <th>Викладачі</th>
+                                    <th>Факультет</th>
+                                    <th>Спеціальність</th>
+                                    <th>Номер групи</th>
+                                    <th>Староста</th>
+                                    <th>Куратор</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="subject in vm.subjects">
-                                    <td>{{subject.name}}</td>
-                                    <td>{{subject.hours}} / {{subject.credits}}</td>
-                                    <td>{{subject.labs}} / {{subject.lecture}}</td>
-                                    <td>{{subject.teachers.name}}</td>
+                                <tr ng-repeat="group in vm.groups">
+                                    <td>{{group.department}}</td>
+                                    <td>{{group.specialization}}</td>
+                                    <td>{{group.number}}</td>
+                                    <td>{{group.monitor}}</td>
+                                    <td>{{group.curator}}</td>
                                     <td>
                                         <button class="btn btn-warning btn-xs" data-toggle="modal"
-                                                data-target="#edit-subject" ng-click="vm.editModal(subject)"><i
+                                                data-target="#edit-group" ng-click="vm.editModal(group)"><i
                                                 class="material-icons">edit</i>
                                         </button>
-                                        <div class="modal fade" id="edit-subject">
+                                        <div class="modal fade" id="edit-group">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -175,77 +176,65 @@
                                                     <div class="modal-body">
                                                         <div class="card">
                                                             <form method="get" action="/" class="form-horizontal">
-                                                                <div class="card-header card-header-text"
-                                                                     data-background-color="purple">
-                                                                    <h4 class="card-title">Редагування</h4>
+                                                                <div class="card-header card-header-text" data-background-color="purple">
+                                                                    <h4 class="card-title">Нова група</h4>
                                                                 </div>
                                                                 <div class="card-content">
                                                                     <div class="row">
-                                                                        <label class="col-sm-4 label-on-left">Назва дисципліни</label>
+                                                                        <label class="col-sm-4 label-on-left">Факультет</label>
                                                                         <div class="col-sm-8">
                                                                             <div class="form-group label-floating is-empty">
                                                                                 <label class="control-label"></label>
-                                                                                <input type="text" class="form-control"
-                                                                                       value=""
-                                                                                       ng-model="vm.subjectData.name">
+                                                                                <input type="text" class="form-control" value=""
+                                                                                       ng-model="vm.groupData.department">
                                                                                 <span class="help-block"></span>
-                                                                                <span class="material-input"></span>
-                                                                            </div>
+                                                                                <span class="material-input"></span></div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <label class="col-sm-4 label-on-left">Години</label>
+                                                                        <label class="col-sm-4 label-on-left">Спеціальність</label>
                                                                         <div class="col-sm-8">
                                                                             <div class="form-group label-floating is-empty">
                                                                                 <label class="control-label"></label>
-                                                                                <input type="number" class="form-control"
-                                                                                       value=""
-                                                                                       ng-model="vm.subjectData.hours">
+                                                                                <input type="text" class="form-control" value=""
+                                                                                       ng-model="vm.groupData.specialization">
                                                                                 <span class="help-block"></span>
-                                                                                <span class="material-input"></span>
-                                                                            </div>
+                                                                                <span class="material-input"></span></div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <label class="col-sm-4 label-on-left">Кредити</label>
+                                                                        <label class="col-sm-4 label-on-left">Номер групи</label>
                                                                         <div class="col-sm-8">
                                                                             <div class="form-group label-floating is-empty">
                                                                                 <label class="control-label"></label>
-                                                                                <input type="number" class="form-control"
-                                                                                       value=""
-                                                                                       ng-model="vm.subjectData.credits">
+                                                                                <input type="text" class="form-control" value=""
+                                                                                       ng-model="vm.groupData.number">
                                                                                 <span class="help-block"></span>
-                                                                                <span class="material-input"></span>
-                                                                            </div>
+                                                                                <span class="material-input"></span></div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <label class="col-sm-4 label-on-left">Лабораторні(год.)</label>
+                                                                        <label class="col-sm-4 label-on-left">Староста</label>
                                                                         <div class="col-sm-8">
                                                                             <div class="form-group label-floating is-empty">
                                                                                 <label class="control-label"></label>
-                                                                                <input type="number" class="form-control"
-                                                                                       value=""
-                                                                                       ng-model="vm.subjectData.labs">
+                                                                                <input type="text" class="form-control" value=""
+                                                                                       ng-model="vm.groupData.monitor">
                                                                                 <span class="help-block"></span>
-                                                                                <span class="material-input"></span>
-                                                                            </div>
+                                                                                <span class="material-input"></span></div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <label class="col-sm-4 label-on-left">Лекції(год.)</label>
+                                                                        <label class="col-sm-4 label-on-left">Куратор</label>
                                                                         <div class="col-sm-8">
                                                                             <div class="form-group label-floating is-empty">
                                                                                 <label class="control-label"></label>
-                                                                                <input type="number" class="form-control"
-                                                                                       value=""
-                                                                                       ng-model="vm.subjectData.lecture">
+                                                                                <input type="text" class="form-control" value=""
+                                                                                       ng-model="vm.groupData.curator">
                                                                                 <span class="help-block"></span>
-                                                                                <span class="material-input"></span>
-                                                                            </div>
+                                                                                <span class="material-input"></span></div>
                                                                         </div>
                                                                     </div>
-
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -253,7 +242,7 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-primary"
                                                                 data-dismiss="modal"
-                                                                ng-click="vm.editSubject()">Зберегти
+                                                                ng-click="vm.editGroup()">Зберегти
                                                         </button>
                                                         <button type="button" class="btn btn-danger"
                                                                 data-dismiss="modal">Закрити
@@ -264,7 +253,7 @@
                                             </div>
 
                                         </div>
-                                        <button class="btn btn-danger btn-xs" ng-click="vm.removeSubject(subject._id)">
+                                        <button class="btn btn-danger btn-xs" ng-click="vm.removeGroup(group._id)">
                                             <i class="material-icons">delete</i>
                                         </button>
                                     </td>
