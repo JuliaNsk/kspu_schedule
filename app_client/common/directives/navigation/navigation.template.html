@@ -1,57 +1,72 @@
 <div class="sidebar" ng-hide="hideSidebar" data-active-color="purple" data-background-color="black" data-image="../../assets/img/sidebar-1.jpg">
 
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text">
-            KSPU
+        <a href="http://www.kspu.kr.ua" class="simple-text">
+            КДПУ
         </a>
     </div>
     <div class="logo logo-mini">
-        <a href="http://www.creative-tim.com" class="simple-text">
-            KSPU
+        <a href="http://www.kspu.kr.ua" class="simple-text">
+            КДПУ
         </a>
     </div>
     <div class="sidebar-wrapper">
         <div class="user">
-            <!--<div class="photo">-->
-                <!--<img src="../../assets/img/faces/avatar.jpg">-->
-            <!--</div>-->
+            <div class="photo">
+                <img src="https://lh3.googleusercontent.com/proxy/KVsk9AfQ79qciYuO-BQ2ci0wrDhngc3GlPjDZNSOk7Ox9MUpTDmRmC55JfNDhRp-1mMheBHShatuxMA=w530-h520-p">
+            </div>
             <div class="info">
                 <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                    {{ vm.user.name }}
+                    {{ navvm.currentUser.name }}
                     <b class="caret"></b>
                 </a>
                 <div class="collapse" id="collapseExample">
                     <ul class="nav">
                         <li>
-                            <a href="#">My Profile</a>
+                            <a href="/profile">My Profile</a>
                         </li>
-                        <li>
-                            <a href="#">Edit Profile</a>
-                        </li>
-                        <li>
-                            <a href="#">Settings</a>
-                        </li>
+
                     </ul>
                 </div>
             </div>
         </div>
         <ul class="nav">
+
             <li>
-                <a href="/">
-                    <i class="material-icons">dashboard</i>
-                    <p>Dashboard</p>
+                <a href="/admin/subjects'">
+                    <i class="material-icons">subject</i>
+                    <p>Дисципліни</p>
                 </a>
             </li>
             <li>
-                <a href="/add-schedule">
+                <a href="/admin/groups">
+                    <i class="material-icons">group</i>
+                    <p>Групи</p>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/organizations">
+                    <i class="material-icons">account_balance</i>
+                    <p>Організації</p>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/teachers">
+                    <i class="material-icons">person</i>
+                    <p>Викладачі</p>
+                </a>
+            </li>
+
+            <li>
+                <a href="/admin/schedule">
                     <i class="material-icons">schedule</i>
-                    <p>Schedule</p>
+                    <p>Розклад</p>
                 </a>
             </li>
             <li>
                 <a href="/login">
                     <i class="material-icons">exit_to_app</i>
-                    <p>Log out</p>
+                    <p>Вийти</p>
                 </a>
             </li>
         </ul>

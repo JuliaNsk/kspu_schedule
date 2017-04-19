@@ -1,12 +1,23 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.sidebar {
+  position: fixed;
 }
 
-.full-page-background {
-  background-image: url("../../public/images/login.jpeg");
+.modal-backdrop {
+  display: none;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+  background-image: none;
+}
+.btn.btn-fab.btn-fab-mini.btn-material{
+  position: absolute;
+  z-index: 9999;
+  right: 30px;
+  height: 63px;
+  width: 63px;
+  margin-top: 4px;
+  font-size: 35px;
 }
