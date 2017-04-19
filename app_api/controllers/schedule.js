@@ -1,18 +1,41 @@
 var mongoose = require('mongoose');
-var User = mongoose.model('User');
+var Schedule = mongoose.model('Schedule');
 
-module.exports.schedule = function(req, res) {
 
-    if (!req.payload._id) {
-        res.status(401).json({
-            "message" : "UnauthorizedError: private profile"
+module.exports.create = function(req, res) {
+
+    var schedule = new Schedule(req.body);
+
+
+    schedule.save(function(err) {
+        res.json({
+            "name" : req.body.name
         });
-    } else {
-        User
-            .findById(req.payload._id)
-            .exec(function(err, user) {
-                res.status(200).json(user);
-            });
-    }
+    });
 
+};
+
+module.exports.get = function(req, res) {
+    Schedule
+        .find({})
+        .populate('organization')
+        .exec(function(err, subj) {
+            res.status(200).json(subj);
+        });
+};
+
+module.exports.delete = function(req, res) {
+    Schedule
+        .deleteOne({_id: req.params.id})
+        .exec(function (err, subj) {
+            res.status(200).json(subj);
+        });
+};
+
+module.exports.update = function(req, res) {
+    Schedule
+        .updateOne({_id: req.params.id}, req.body)
+        .exec(function (err, subj) {
+            res.status(200).json(subj);
+        });
 };

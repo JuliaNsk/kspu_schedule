@@ -8,7 +8,7 @@
     function subjectsCtrl(subjects, $window, organizations) {
         var vm = this;
         md.initMinimizeSidebar();
-
+        vm.select =[];
         vm.newSubject = {};
         getSubjectsList();
         getOrganizationsList();
@@ -35,10 +35,10 @@
 
 
         vm.addModal = function () {
-            selectPickerActivate()
+            // $(".selectpicker").selectpicker('refresh');
         };
         vm.addSubject = function () {
-            vm.newSubject.organization = vm.organizations.find(findOrganization);
+            // vm.newSubject.organization = vm.organizations.find(findOrganization);
 
             subjects.addSubjects(vm.newSubject)
                 .error(function (err) {
@@ -52,9 +52,10 @@
 
 
         vm.editModal = function (subj) {
+            $(".selectpicker").selectpicker('refresh');
+
             vm.subjectData = angular.copy(subj);
             vm.subjectData.organization = vm.organizations.find(findOrganization);
-            selectPickerActivate()
         };
 
         vm.editSubject = function () {
@@ -78,19 +79,6 @@
 
         function findOrganization(org) {
             return org.name == vm.newSubject.organization || org.name == vm.subjectData.organization || org._id == vm.subjectData.organization;
-        }
-
-        function selectPickerActivate() {
-            if($(".selectpicker").length != 0){
-                $(".selectpicker").selectpicker();
-            }
-            $(".select").dropdown({ "dropdownClass": "dropdown-menu", "optionClass": "" });
-
-            $('.form-control').on("focus", function(){
-                $(this).parent('.input-group').addClass("input-group-focus");
-            }).on("blur", function(){
-                $(this).parent(".input-group").removeClass("input-group-focus");
-            });
         }
 
     }

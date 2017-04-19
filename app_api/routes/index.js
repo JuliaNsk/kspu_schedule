@@ -19,27 +19,30 @@ router.get('/profile', auth, ctrlProfile.profileRead);
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
-router.post('/add-schedule', ctrlSchedule.schedule);
-
 router.post('/subjects', ctrlSubjects.create);
 router.get('/subjects', ctrlSubjects.get);
 router.delete('/subjects/:id', ctrlSubjects.delete);
 router.put('/subjects/:id', ctrlSubjects.update);
 
-router.post('/groups', auth, ctrlGroups.create);
-router.get('/groups', auth, ctrlGroups.get);
-router.delete('/groups/:id', auth, ctrlGroups.delete);
-router.put('/groups/:id', auth, ctrlGroups.update);
+router.post('/groups', ctrlGroups.create);
+router.get('/groups',  ctrlGroups.get);
+router.delete('/groups/:id',  ctrlGroups.delete);
+router.put('/groups/:id', ctrlGroups.update);
 
-router.post('/organizations', auth, ctrlOrganizations.create);
-router.get('/organizations', auth, ctrlOrganizations.get);
-router.delete('/organizations/:id', auth, ctrlOrganizations.delete);
-router.put('/organizations/:id', auth, ctrlOrganizations.update);
+router.post('/organizations',  ctrlOrganizations.create);
+router.get('/organizations',  ctrlOrganizations.get);
+router.delete('/organizations/:id',  ctrlOrganizations.delete);
+router.put('/organizations/:id',  ctrlOrganizations.update);
 
-router.post('/teachers', auth, ctrlTeachers.create);
-router.get('/teachers', auth, ctrlTeachers.get);
-router.delete('/teachers/:id', auth, ctrlTeachers.delete);
-router.put('/teachers/:id', auth, ctrlTeachers.update);
+router.post('/teachers',  ctrlTeachers.create);
+router.get('/teachers',  ctrlTeachers.get);
+router.delete('/teachers/:id',  ctrlTeachers.delete);
+router.put('/teachers/:id',  ctrlTeachers.update);
+
+router.post('/schedule',  ctrlSchedule.create);
+router.get('/schedule',  ctrlSchedule.get);
+router.delete('/schedule/:id',  ctrlSchedule.delete);
+router.put('/schedule/:id',  ctrlSchedule.update);
 
 
 module.exports = router;

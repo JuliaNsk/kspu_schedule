@@ -24,8 +24,13 @@
         controller: 'profileCtrl',
         controllerAs: 'vm'
       })
-        .when('/admin/add-schedule', {
-        templateUrl: '/schedule/add-schedule.view.html',
+        .when('/admin/schedules', {
+        templateUrl: '/schedules/schedules.view.html',
+        controller: 'schedulesCtrl',
+        controllerAs: 'vm'
+      })
+        .when('/admin/schedule/add-schedule', {
+        templateUrl: '/schedules/add-schedule.view.html',
         controller: 'addScheduleCtrl',
         controllerAs: 'vm'
       })

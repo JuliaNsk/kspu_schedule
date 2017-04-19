@@ -7,7 +7,7 @@
     groupsCtrl.$inject = ['groups', '$window', 'organizations'];
     function groupsCtrl(groups, $window, organizations) {
         var vm = this;
-        // md.initMinimizeSidebar();
+        md.initMinimizeSidebar();
 
         vm.newGroup = {};
         getGroupsList();
@@ -63,7 +63,7 @@
         };
 
         vm.addGroup = function () {
-            vm.newGroup.organization = vm.organizations.find(findOrganization);
+            // vm.newGroup.organization = vm.organizations.find(findOrganization);
 
             groups.addGroups(vm.newGroup)
                 .error(function (err) {

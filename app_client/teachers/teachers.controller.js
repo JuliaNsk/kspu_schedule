@@ -45,13 +45,16 @@
         };
 
         vm.addModal = function () {
-            selectPickerActivate()
+            $(".selectpicker").selectpicker('refresh');
+
         };
 
         vm.editModal = function (subj) {
+            $(".selectpicker").selectpicker('refresh');
+
             vm.teacherData = angular.copy(subj);
             vm.teacherData.organization = vm.organizations.find(findOrganization);
-            selectPickerActivate()
+
         };
 
         vm.editTeacher = function () {
@@ -66,7 +69,6 @@
 
         vm.addTeacher = function () {
             vm.newTeacher.organization = vm.organizations.find(findOrganization);
-
             teachers.addTeachers(vm.newTeacher)
                 .error(function (err) {
                     alert(err);
@@ -81,18 +83,18 @@
             return org.name == vm.newTeacher.organization || org.name == vm.teacherData.organization || org._id == vm.teacherData.organization;
         }
 
-        function selectPickerActivate() {
-            if($(".selectpicker").length != 0){
-                $(".selectpicker").selectpicker();
-            }
-            $(".select").dropdown({ "dropdownClass": "dropdown-menu", "optionClass": "" });
-
-            $('.form-control').on("focus", function(){
-                $(this).parent('.input-group').addClass("input-group-focus");
-            }).on("blur", function(){
-                $(this).parent(".input-group").removeClass("input-group-focus");
-            });
-        }
+        // function selectPickerActivate() {
+        //     if($(".selectpicker").length != 0){
+        //         $(".selectpicker").selectpicker();
+        //     }
+        //     $(".select").dropdown({ "dropdownClass": "dropdown-menu", "optionClass": "" });
+        //
+        //     $('.form-control').on("focus", function(){
+        //         $(this).parent('.input-group').addClass("input-group-focus");
+        //     }).on("blur", function(){
+        //         $(this).parent(".input-group").removeClass("input-group-focus");
+        //     });
+        // }
 
     }
 })();

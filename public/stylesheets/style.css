@@ -21,3 +21,49 @@ body {
   margin-top: 4px;
   font-size: 35px;
 }
+.subject_number {
+  width: 2%;
+
+}
+
+.day_name {
+  text-align: center;
+  width: 4%;
+  /*padding: 0!important;*/
+
+}
+.day_name div {
+  -webkit-transform: rotate(-90deg);
+
+  /* Firefox */
+  -moz-transform: rotate(-90deg);
+
+  /* IE */
+  -ms-transform: rotate(-90deg);
+
+  /* Opera */
+  -o-transform: rotate(-90deg);
+
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+.btn-group.bootstrap-select.open .select-with-transition{
+  outline: none !important;
+  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2) !important;
+  background-size: 100% 2px, 100% 1px !important;
+  box-shadow: none;
+  transition-duration: 0.3s !important;
+}
+ .select-with-transition span{
+  color: #9c27b0;
+}
+.table>thead>tr>th {
+  border-bottom-color: #9c27b0;
+}
+.bs-placeholder span{
+  color: rgb(210, 210, 210);
+
+}
+.table-responsive {
+  overflow: hidden;
+}
