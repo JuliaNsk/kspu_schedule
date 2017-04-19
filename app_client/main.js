@@ -24,24 +24,29 @@
         controller: 'profileCtrl',
         controllerAs: 'vm'
       })
-        .when('/add-schedule', {
+        .when('/admin/add-schedule', {
         templateUrl: '/schedule/add-schedule.view.html',
         controller: 'addScheduleCtrl',
         controllerAs: 'vm'
       })
-        .when('/subjects', {
+        .when('/admin/subjects', {
         templateUrl: '/subjects/subjects.view.html',
         controller: 'subjectsCtrl',
         controllerAs: 'vm'
       })
-        .when('/groups', {
+        .when('/admin/groups', {
         templateUrl: '/groups/groups.view.html',
         controller: 'groupsCtrl',
         controllerAs: 'vm'
       })
-        .when('/organizations', {
+        .when('/admin/organizations', {
         templateUrl: '/organizations/organizations.view.html',
         controller: 'organizationsCtrl',
+        controllerAs: 'vm'
+      })
+        .when('/admin/teachers', {
+        templateUrl: '/teachers/teachers.view.html',
+        controller: 'teachersCtrl',
         controllerAs: 'vm'
       })
       .otherwise({redirectTo: '/'});
@@ -52,8 +57,8 @@
 
   function run($rootScope, $location, authentication) {
     $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
-      if ($location.path() === '/profile' && !authentication.isLoggedIn()) {
-        $location.path('/');
+      if ($location.path() !== '/login' && !$location.path() !== '/register' && !authentication.isLoggedIn()) {
+        $location.path('/login');
       }
     });
   }

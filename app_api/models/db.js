@@ -50,3 +50,4 @@ require('./users');
 require('./subjects');
 require('./groups');
 require('./organizations');
+require('./teachers');

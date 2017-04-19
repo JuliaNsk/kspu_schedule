@@ -9,17 +9,13 @@ var groupsSchema = new mongoose.Schema({
     specialization: {
         type: 'string'
     },
-    department: {
+    faculty: {
         type: 'string'
     },
-    monitor: {
-        type: 'string'
-    },
-    curator: {
-        type: 'string'
+    organization: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Organizations'
     }
-
-
 });
 
 

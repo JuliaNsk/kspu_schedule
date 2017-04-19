@@ -50,7 +50,10 @@
 
         <div class="container-fluid">
             <div class="row">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Додати групу</button>
+                <button class="btn btn-primary btn-round btn-fab btn-fab-mini pull-right btn-material" ng-click="vm.addModal()" data-toggle="modal" data-target="#myModal">+</button>
+
+<!---    Modal add group ---- Modal add group ---- Modal add group ---- Modal add group ----  Modal add group ---- Modal add group ---- Modal add group      -->
+
                 <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -66,12 +69,23 @@
                                         </div>
                                         <div class="card-content">
                                             <div class="row">
+                                                <label class="col-sm-4 label-on-left">Організація</label>
+                                                <div class="row">
+                                                    <div class="col-lg-5 col-md-6 col-sm-3">
+                                                        <select  class="selectpicker" data-style="btn btn-primary btn-round" title="Обрати ..." data-size="7" ng-model="vm.newGroup.organization">
+                                                            <option ng-repeat="organization in vm.organizations">{{organization.name}}</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row">
                                                 <label class="col-sm-4 label-on-left">Факультет</label>
                                                 <div class="col-sm-8">
                                                     <div class="form-group label-floating is-empty">
                                                         <label class="control-label"></label>
                                                         <input type="text" class="form-control" value=""
-                                                               ng-model="vm.newGroup.department">
+                                                               ng-model="vm.newGroup.faculty">
                                                         <span class="help-block"></span>
                                                         <span class="material-input"></span></div>
                                                 </div>
@@ -98,28 +112,6 @@
                                                         <span class="material-input"></span></div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <label class="col-sm-4 label-on-left">Староста</label>
-                                                <div class="col-sm-8">
-                                                    <div class="form-group label-floating is-empty">
-                                                        <label class="control-label"></label>
-                                                        <input type="text" class="form-control" value=""
-                                                               ng-model="vm.newGroup.monitor">
-                                                        <span class="help-block"></span>
-                                                        <span class="material-input"></span></div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <label class="col-sm-4 label-on-left">Куратор</label>
-                                                <div class="col-sm-8">
-                                                    <div class="form-group label-floating is-empty">
-                                                        <label class="control-label"></label>
-                                                        <input type="text" class="form-control" value=""
-                                                               ng-model="vm.newGroup.curator">
-                                                        <span class="help-block"></span>
-                                                        <span class="material-input"></span></div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -135,6 +127,8 @@
                     </div>
                 </div>
 
+<!---    Modal add group ---- Modal add group ---- Modal add group ---- Modal add group ----  Modal add group ---- Modal add group ---- Modal add group      -->
+
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="purple">
                         <i class="material-icons">group</i>
@@ -145,26 +139,28 @@
                             <table class="table">
                                 <thead class="text-primary">
                                 <tr>
+                                    <th>Організація</th>
                                     <th>Факультет</th>
                                     <th>Спеціальність</th>
                                     <th>Номер групи</th>
-                                    <th>Староста</th>
-                                    <th>Куратор</th>
+
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr ng-repeat="group in vm.groups">
-                                    <td>{{group.department}}</td>
+                                    <td>{{group.organization.name}}</td>
+                                    <td>{{group.faculty}}</td>
                                     <td>{{group.specialization}}</td>
                                     <td>{{group.number}}</td>
-                                    <td>{{group.monitor}}</td>
-                                    <td>{{group.curator}}</td>
                                     <td>
                                         <button class="btn btn-warning btn-xs" data-toggle="modal"
                                                 data-target="#edit-group" ng-click="vm.editModal(group)"><i
                                                 class="material-icons">edit</i>
                                         </button>
+
+<!---    Modal edit group ---- Modal edit group ---- Modal edit group ---- Modal edit group ----  Modal edit group ---- Modal edit group ---- Modal edit group      -->
+
                                         <div class="modal fade" id="edit-group">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -181,12 +177,23 @@
                                                                 </div>
                                                                 <div class="card-content">
                                                                     <div class="row">
+                                                                        <label class="col-sm-4 label-on-left">Організація</label>
+                                                                        <div class="row">
+                                                                            <div class="col-lg-5 col-md-6 col-sm-3">
+                                                                                <select class="selectpicker" data-style="btn btn-primary btn-round" title="Обрати ..." data-size="7" ng-model="vm.groupData.organization" >
+                                                                                    <option ng-repeat="organization in vm.organizations">{{organization.name}}</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
                                                                         <label class="col-sm-4 label-on-left">Факультет</label>
                                                                         <div class="col-sm-8">
                                                                             <div class="form-group label-floating is-empty">
                                                                                 <label class="control-label"></label>
                                                                                 <input type="text" class="form-control" value=""
-                                                                                       ng-model="vm.groupData.department">
+                                                                                       ng-model="vm.groupData.faculty">
                                                                                 <span class="help-block"></span>
                                                                                 <span class="material-input"></span></div>
                                                                         </div>
@@ -213,28 +220,6 @@
                                                                                 <span class="material-input"></span></div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="row">
-                                                                        <label class="col-sm-4 label-on-left">Староста</label>
-                                                                        <div class="col-sm-8">
-                                                                            <div class="form-group label-floating is-empty">
-                                                                                <label class="control-label"></label>
-                                                                                <input type="text" class="form-control" value=""
-                                                                                       ng-model="vm.groupData.monitor">
-                                                                                <span class="help-block"></span>
-                                                                                <span class="material-input"></span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <label class="col-sm-4 label-on-left">Куратор</label>
-                                                                        <div class="col-sm-8">
-                                                                            <div class="form-group label-floating is-empty">
-                                                                                <label class="control-label"></label>
-                                                                                <input type="text" class="form-control" value=""
-                                                                                       ng-model="vm.groupData.curator">
-                                                                                <span class="help-block"></span>
-                                                                                <span class="material-input"></span></div>
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -253,6 +238,9 @@
                                             </div>
 
                                         </div>
+
+<!---    Modal edit group ---- Modal edit group ---- Modal edit group ---- Modal edit group ----  Modal edit group ---- Modal edit group ---- Modal edit group      -->
+
                                         <button class="btn btn-danger btn-xs" ng-click="vm.removeGroup(group._id)">
                                             <i class="material-icons">delete</i>
                                         </button>

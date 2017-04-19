@@ -15,11 +15,17 @@ module.exports.create = function(req, res) {
 };
 
 module.exports.get = function(req, res) {
-    Organizations
-        .find({})
-        .exec(function(err, subj) {
-            res.status(200).json(subj);
+    if (!req.payload._id) {
+        res.status(401).json({
+            "message" : "UnauthorizedError: private profile"
         });
+    } else {
+        Organizations
+            .find({})
+            .exec(function (err, subj) {
+                res.status(200).json(subj);
+            });
+    }
 };
 
 module.exports.delete = function(req, res) {

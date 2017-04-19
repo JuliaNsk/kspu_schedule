@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
-var Groups = mongoose.model('Groups');
+var Teachers = mongoose.model('Teachers');
 
 module.exports.create = function(req, res) {
 
-    var groups = new Groups(req.body);
+    var teachers = new Teachers(req.body);
 
-    groups.save(function(err) {
+    teachers.save(function(err) {
         res.json({
             "name" : req.body.name
         });
@@ -14,7 +14,7 @@ module.exports.create = function(req, res) {
 };
 
 module.exports.get = function(req, res) {
-    Groups
+    Teachers
         .find({})
         .populate('organization')
         .exec(function(err, subj) {
@@ -23,7 +23,7 @@ module.exports.get = function(req, res) {
 };
 
 module.exports.delete = function(req, res) {
-    Groups
+    Teachers
         .deleteOne({_id: req.params.id})
         .exec(function (err, subj) {
             res.status(200).json(subj);
@@ -31,7 +31,7 @@ module.exports.delete = function(req, res) {
 };
 
 module.exports.update = function(req, res) {
-    Groups
+    Teachers
         .updateOne({_id: req.params.id}, req.body)
         .exec(function (err, subj) {
             res.status(200).json(subj);

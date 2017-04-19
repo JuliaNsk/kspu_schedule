@@ -1,22 +1,20 @@
 var mongoose = require( 'mongoose' );
 
-var subjectsSchema = new mongoose.Schema({
+var teachersSchema = new mongoose.Schema({
     name: {
         type: String,
         unique: true,
         required: true
     },
-    hours: {
-        type: Number
+    email: {
+        type: String,
+        unique: true
     },
-    credits: {
-        type: Number
+    faculty: {
+        type: String
     },
-    labs: {
-        type: Number
-    },
-    lecture: {
-        type: Number
+    specialization: {
+        type: String
     },
     organization: {
         type: mongoose.Schema.Types.ObjectId,
@@ -25,4 +23,4 @@ var subjectsSchema = new mongoose.Schema({
 });
 
 
-mongoose.model('Subjects', subjectsSchema);
+mongoose.model('Teachers', teachersSchema);

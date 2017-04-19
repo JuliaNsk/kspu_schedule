@@ -11,7 +11,9 @@
     vm.isLoggedIn = authentication.isLoggedIn();
 
     vm.currentUser = authentication.currentUser();
-
+      vm.go = function ( path ) {
+          $location.path( path );
+      };
   }
 
 })();

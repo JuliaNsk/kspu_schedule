@@ -15,6 +15,9 @@ var userSchema = new mongoose.Schema({
     role: {
         type: String
     },
+    position: {
+        type: String
+    },
     hash: String,
     salt: String
 });

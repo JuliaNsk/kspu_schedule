@@ -17,7 +17,7 @@ module.exports.create = function(req, res) {
 module.exports.get = function(req, res) {
     Subjects
         .find({})
-        .populate('teachers')
+        .populate('organization')
         .exec(function(err, subj) {
             res.status(200).json(subj);
         });

@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var jwt = require('express-jwt');
 var auth = jwt({
-  secret: 'MY_SECRET',
-  userProperty: 'payload'
+    secret: 'MY_SECRET',
+    userProperty: 'payload'
 });
 
 var ctrlProfile = require('../controllers/profile');
@@ -12,12 +12,10 @@ var ctrlSchedule = require('../controllers/schedule');
 var ctrlSubjects = require('../controllers/subjects');
 var ctrlGroups = require('../controllers/groups');
 var ctrlOrganizations = require('../controllers/organizations');
+var ctrlTeachers = require('../controllers/teachers');
 
-// profile
 router.get('/profile', auth, ctrlProfile.profileRead);
 
-
-// authentication
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
@@ -28,17 +26,20 @@ router.get('/subjects', ctrlSubjects.get);
 router.delete('/subjects/:id', ctrlSubjects.delete);
 router.put('/subjects/:id', ctrlSubjects.update);
 
-router.post('/groups', ctrlGroups.create);
-router.get('/groups', ctrlGroups.get);
-router.delete('/groups/:id', ctrlGroups.delete);
-router.put('/groups/:id', ctrlGroups.update);
+router.post('/groups', auth, ctrlGroups.create);
+router.get('/groups', auth, ctrlGroups.get);
+router.delete('/groups/:id', auth, ctrlGroups.delete);
+router.put('/groups/:id', auth, ctrlGroups.update);
 
-router.post('/organizations', ctrlOrganizations.create);
-router.get('/organizations', ctrlOrganizations.get);
-router.delete('/organizations/:id', ctrlOrganizations.delete);
-router.put('/organizations/:id', ctrlOrganizations.update);
+router.post('/organizations', auth, ctrlOrganizations.create);
+router.get('/organizations', auth, ctrlOrganizations.get);
+router.delete('/organizations/:id', auth, ctrlOrganizations.delete);
+router.put('/organizations/:id', auth, ctrlOrganizations.update);
 
-
+router.post('/teachers', auth, ctrlTeachers.create);
+router.get('/teachers', auth, ctrlTeachers.get);
+router.delete('/teachers/:id', auth, ctrlTeachers.delete);
+router.put('/teachers/:id', auth, ctrlTeachers.update);
 
 
 module.exports = router;
