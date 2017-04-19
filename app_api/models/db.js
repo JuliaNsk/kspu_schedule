@@ -51,3 +51,4 @@ require('./subjects');
 require('./groups');
 require('./organizations');
 require('./teachers');
+require('./schedule');

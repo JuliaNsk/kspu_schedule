@@ -72,8 +72,8 @@
                                                 <label class="col-sm-4 label-on-left">Організація</label>
                                                 <div class="row">
                                                     <div class="col-lg-5 col-md-6 col-sm-3">
-                                                        <select  class="selectpicker" data-style="btn btn-primary btn-round" title="Обрати ..." data-size="7" ng-model="vm.newSubject.organization">
-                                                            <option ng-repeat="organization in vm.organizations">{{organization.name}}</option>
+                                                        <select class="selectpicker" id="addselectpicker" data-style="btn btn-primary btn-round" title="Обрати ..." data-size="7" >
+                                                            <option data-ng-repeat="organization in vm.organizations" value="{{organization.id}}">{{organization.name}}</option>
                                                         </select>
                                                     </div>
 
@@ -204,8 +204,8 @@
                                                                         <label class="col-sm-4 label-on-left">Організація</label>
                                                                         <div class="row">
                                                                             <div class="col-lg-5 col-md-6 col-sm-3">
-                                                                                <select class="selectpicker" data-style="btn btn-primary btn-round" title="Обрати ..." data-size="7" ng-model="vm.subjectData.organization" >
-                                                                                    <option ng-repeat="organization in vm.organizations">{{organization.name}}</option>
+                                                                                <select class="selectpicker" id="editselectpicker" data-style="btn btn-primary btn-round" title="Обрати ..." data-size="7" >
+                                                                                    <option data-ng-repeat="organization in vm.organizations" value="{{organization.id}}">{{organization.name}}</option>
                                                                                 </select>
                                                                             </div>
 

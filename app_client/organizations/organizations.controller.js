@@ -7,7 +7,7 @@
     organizationsCtrl.$inject = ['organizations', '$window', '$scope'];
     function organizationsCtrl(organizations, $window) {
         var vm = this;
-        // md.initMinimizeSidebar();
+        md.initMinimizeSidebar();
         vm.newOrganization = {};
         getOrganizationsList();
 

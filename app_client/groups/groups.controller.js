@@ -7,7 +7,9 @@
     groupsCtrl.$inject = ['groups', '$window', 'organizations'];
     function groupsCtrl(groups, $window, organizations) {
         var vm = this;
-        // md.initMinimizeSidebar();
+        vm.select = '';
+
+        md.initMinimizeSidebar();
 
         vm.newGroup = {};
         getGroupsList();
@@ -34,7 +36,11 @@
         }
 
         vm.addModal = function () {
-            selectPickerActivate()
+            $(".selectpicker")
+                .selectpicker('refresh')
+                .change(function(e) {
+                    vm.select = $(this).find('option:selected').text()
+                });
         };
 
         vm.removeGroup = function (group) {
@@ -48,13 +54,20 @@
         };
 
         vm.editModal = function (group) {
+            $(".selectpicker").selectpicker('refresh')
+                .change(function(e) {
+                    vm.select = $(this).find('option:selected').text()
+                });
             vm.groupData = angular.copy(group);
-            vm.groupData.organization = vm.organizations.find(findOrganization);
-            selectPickerActivate()
+            vm.groupData.organization = vm.organizations.filter(function( org ) {
+                return org.name == vm.select;
+            })[0];
         };
 
         vm.editGroup = function () {
-            vm.groupData.organization = vm.organizations.find(findOrganization);
+            vm.groupData.organization = vm.organizations.filter(function( org ) {
+                return org.name == vm.select;
+            })[0];
             groups.editGroups(vm.groupData)
                 .then(function () {
                     vm.groupData = {};
@@ -63,8 +76,9 @@
         };
 
         vm.addGroup = function () {
-            vm.newGroup.organization = vm.organizations.find(findOrganization);
-
+            vm.newGroup.organization =  vm.organizations.filter(function( org ) {
+                return org.name == vm.select;
+            })[0];
             groups.addGroups(vm.newGroup)
                 .error(function (err) {
                     alert(err);
@@ -74,23 +88,6 @@
                     getGroupsList()
                 });
         };
-
-        function findOrganization(org) {
-            return org.name == vm.newGroup.organization || org.name == vm.groupData.organization || org._id == vm.groupData.organization;
-        }
-
-        function selectPickerActivate() {
-            if($(".selectpicker").length != 0){
-                $(".selectpicker").selectpicker();
-            }
-            $(".select").dropdown({ "dropdownClass": "dropdown-menu", "optionClass": "" });
-
-            $('.form-control').on("focus", function(){
-                $(this).parent('.input-group').addClass("input-group-focus");
-            }).on("blur", function(){
-                $(this).parent(".input-group").removeClass("input-group-focus");
-            });
-        }
 
     }
 
