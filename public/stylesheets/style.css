@@ -67,3 +67,13 @@ body {
 .table-responsive {
   overflow: hidden;
 }
+
+.room_number {
+  margin: 8px 1px;
+}
+
+.form-group.label-floating.room_number label.control-label{
+  font-size: 12px;
+  color: rgb(210, 210, 210);
+  text-transform: uppercase;
+}

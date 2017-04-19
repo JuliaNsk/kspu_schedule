@@ -7,6 +7,7 @@
     teachersCtrl.$inject = ['teachers', '$window', 'organizations'];
     function teachersCtrl(teachers, $window, organizations) {
         var vm = this;
+        vm.select = '';
         md.initMinimizeSidebar();
 
         vm.newTeacher = {};
@@ -45,21 +46,31 @@
         };
 
         vm.addModal = function () {
-            $(".selectpicker").selectpicker('refresh');
-
+            $(".selectpicker")
+                .selectpicker('refresh')
+                .change(function(e) {
+                    vm.select = $(this).find('option:selected').text()
+                });
         };
 
         vm.editModal = function (subj) {
-            $(".selectpicker").selectpicker('refresh');
+            $(".selectpicker").selectpicker('refresh')
+                .change(function(e) {
+                    vm.select = $(this).find('option:selected').text()
+                });
 
             vm.teacherData = angular.copy(subj);
-            vm.teacherData.organization = vm.organizations.find(findOrganization);
+            vm.teacherData.organization = vm.organizations.filter(function( org ) {
+                return org.name == vm.select;
+            })[0];
 
         };
 
         vm.editTeacher = function () {
 
-            vm.teacherData.organization = vm.organizations.find(findOrganization);
+            vm.teacherData.organization = vm.organizations.filter(function( org ) {
+                return org.name == vm.select;
+            })[0];
             teachers.editTeachers(vm.teacherData)
                 .then(function () {
                     vm.teacherData = {};
@@ -68,7 +79,9 @@
         };
 
         vm.addTeacher = function () {
-            vm.newTeacher.organization = vm.organizations.find(findOrganization);
+            vm.newTeacher.organization = vm.organizations.filter(function( org ) {
+                return org.name == vm.select;
+            })[0];
             teachers.addTeachers(vm.newTeacher)
                 .error(function (err) {
                     alert(err);
@@ -78,23 +91,6 @@
                     getTeachersList()
                 });
         };
-
-        function findOrganization(org) {
-            return org.name == vm.newTeacher.organization || org.name == vm.teacherData.organization || org._id == vm.teacherData.organization;
-        }
-
-        // function selectPickerActivate() {
-        //     if($(".selectpicker").length != 0){
-        //         $(".selectpicker").selectpicker();
-        //     }
-        //     $(".select").dropdown({ "dropdownClass": "dropdown-menu", "optionClass": "" });
-        //
-        //     $('.form-control').on("focus", function(){
-        //         $(this).parent('.input-group').addClass("input-group-focus");
-        //     }).on("blur", function(){
-        //         $(this).parent(".input-group").removeClass("input-group-focus");
-        //     });
-        // }
 
     }
 })();

@@ -7,11 +7,12 @@
     addScheduleCtrl.$inject = ['$location', 'schedules', 'organizations', 'subjects', 'teachers', '$q', 'groups'];
     function addScheduleCtrl($location, schedules, organizations, subjects, teachers, $q, groups) {
         var vm = this;
+        vm.years = ['2015-2016', '2016-2017', '2017-2018'];
+
         md.initMinimizeSidebar();
         getInfo();
         function getInfo() {
-            $q.all([getSchedulesList(), getOrganizationsList(), getSubjectsList(), getGroupsList()])
-                .then(getTeachersList)
+            $q.all([getSchedulesList(), getOrganizationsList(), getTeachersList(), getSubjectsList(), getGroupsList(), refresh()])
         }
         vm.schedules = [];
 
@@ -43,7 +44,6 @@
                 .then(function (subjects) {
                     vm.subjects = subjects.data;
                     $(".selectpicker").selectpicker('refresh');
-
                 });
         }
 
@@ -55,7 +55,6 @@
                 .then(function (groups) {
                     vm.groups = groups.data;
                     $(".selectpicker").selectpicker('refresh');
-
                 });
         }
 
@@ -66,9 +65,16 @@
                 })
                 .then(function (teachers) {
                     vm.teachers = teachers.data;
-                    console.log(teachers.data)
                     $(".selectpicker").selectpicker('refresh');
                 });
+        }
+
+        function refresh() {
+           setTimeout(function () {
+               vm.teachers = teachers.data;
+               $(".selectpicker").selectpicker('refresh');
+           }, 2000)
+
         }
 
     }
