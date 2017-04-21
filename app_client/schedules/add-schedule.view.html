@@ -50,7 +50,7 @@
 
         <div class="container-fluid">
             <div class="row">
-                <button class="btn btn-primary btn-round btn-fab btn-fab-mini pull-right btn-material" ng-click="vm.addModal()"><i class="material-icons">done</i></button>
+                <button class="btn btn-primary btn-round btn-fab btn-fab-mini pull-right btn-material" ng-click="vm.createSchedule()"><i class="material-icons">done</i></button>
 
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="purple">
@@ -92,15 +92,13 @@
                                     <td class="subject_number">1</td>
                                     <td class="tg-031e">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition" title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.monday[0].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
+
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.monday[0].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
+
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
@@ -114,15 +112,11 @@
                                     <td class="tg-031e">
 
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.monday[1].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.monday[1].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -136,15 +130,11 @@
                                     <td class="subject_number">3</td>
                                     <td class="tg-031e">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.monday[2].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.monday[2].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -158,15 +148,11 @@
                                     <td class="subject_number">4</td>
                                     <td class="tg-031e">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.monday[3].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.monday[3].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -180,15 +166,11 @@
                                     <td class="subject_number">5</td>
                                     <td class="tg-031e">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.monday[4].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.monday[4].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -202,15 +184,11 @@
                                     <td class="subject_number">6</td>
                                     <td class="tg-031e">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.monday[5].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.monday[5].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -225,15 +203,11 @@
                                     <td class="subject_number">1</td>
                                     <td class="tg-031e">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[0].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[0].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -247,15 +221,11 @@
                                     <td class="subject_number">2</td>
                                     <td class="tg-031e">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[1].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[1].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -269,15 +239,11 @@
                                     <td class="subject_number">3</td>
                                     <td class="tg-031e">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[2].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[2].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -291,15 +257,11 @@
                                     <td class="subject_number">4</td>
                                     <td class="tg-031e">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[3].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[3].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -313,15 +275,11 @@
                                     <td class="subject_number">5</td>
                                     <td class="tg-031e">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[4].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[4].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -335,15 +293,11 @@
                                     <td class="subject_number">6</td>
                                     <td class="tg-031e">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[5].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[50].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -358,15 +312,11 @@
                                     <td class="subject_number">1</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.wednesday[0].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.wednesday[0].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -380,15 +330,11 @@
                                     <td class="subject_number">2</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.wednesday[1].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.wednesday[1].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -402,15 +348,11 @@
                                     <td class="subject_number">3</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.wednesday[2].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.wednesday[2].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -424,15 +366,11 @@
                                     <td class="subject_number">4</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.wednesday[3].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.wednesday[3].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -446,15 +384,11 @@
                                     <td class="subject_number">5</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.wednesday[4].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.wednesday[4].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -468,15 +402,11 @@
                                     <td class="subject_number">6</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.wednesday[5].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.wednesday[5].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -491,15 +421,11 @@
                                     <td class="subject_number">1</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.thursday[0].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.thursday[0].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -513,15 +439,11 @@
                                     <td class="subject_number">2</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.thursday[1].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.thursday[1].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -535,15 +457,11 @@
                                     <td class="subject_number">3</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.thursday[2].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.thursday[2].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -557,15 +475,11 @@
                                     <td class="subject_number">4</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.thursday[3].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.thursday[3].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -579,15 +493,11 @@
                                     <td class="subject_number">5</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.thursday[4].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.thursday[4].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -601,15 +511,11 @@
                                     <td class="subject_number">6</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.thursday[5].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.thursday[5].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -624,15 +530,11 @@
                                     <td class="subject_number">1</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.friday[0].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.friday[0].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -646,15 +548,11 @@
                                     <td class="subject_number">2</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.friday[1].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.friday[1].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -668,15 +566,11 @@
                                     <td class="subject_number">3</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.friday[2].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.friday[2].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -690,15 +584,11 @@
                                     <td class="subject_number">4</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.friday[3].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.friday[3].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -712,15 +602,11 @@
                                     <td class="subject_number">5</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.friday[4].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.friday[4].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
@@ -734,15 +620,11 @@
                                     <td class="subject_number">6</td>
                                     <td class="tg-yw4l">
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Дисципліна..." data-size="7">
-                                                <option ng-repeat="subject in vm.subjects">{{subject.name}}</option>
+                                            <select name="singleSelect" ng-model="vm.schedule.friday[5].subject" ng-options="sub._id as sub.name for sub in vm.subjects"></select>
 
-                                            </select>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select class="selectpicker" data-style="select-with-transition"  title="Викладач..." data-size="7">
-                                                <option ng-repeat="teacher in vm.teachers">{{teacher.name}}</option>
-                                            </select>
+                                            <select name="singleSelect" ng-model="vm.schedule.friday[5].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">

@@ -8,6 +8,13 @@
     function addScheduleCtrl($location, schedules, organizations, subjects, teachers, $q, groups) {
         var vm = this;
         vm.years = ['2015-2016', '2016-2017', '2017-2018'];
+        vm.schedule = {
+            monday: [],
+            tuesday: [],
+            wednesday: [],
+            thursday: [],
+            friday: []
+        };
 
         md.initMinimizeSidebar();
         getInfo();
@@ -43,7 +50,6 @@
                 })
                 .then(function (subjects) {
                     vm.subjects = subjects.data;
-                    $(".selectpicker").selectpicker('refresh');
                 });
         }
 
@@ -65,16 +71,21 @@
                 })
                 .then(function (teachers) {
                     vm.teachers = teachers.data;
-                    $(".selectpicker").selectpicker('refresh');
                 });
         }
 
         function refresh() {
-           setTimeout(function () {
-               vm.teachers = teachers.data;
-               $(".selectpicker").selectpicker('refresh');
-           }, 2000)
 
+        }
+
+        vm.createSchedule = function () {
+            schedules.addSchedules(vm.schedule)
+                .error(function (err) {
+                    alert(err);
+                })
+                .then(function (groups) {
+
+                });
         }
 
     }

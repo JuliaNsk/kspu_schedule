@@ -34,6 +34,11 @@
         controller: 'addScheduleCtrl',
         controllerAs: 'vm'
       })
+        .when('/admin/schedule/:id', {
+        templateUrl: '/schedules/show-schedule.view.html',
+        controller: 'showScheduleCtrl',
+        controllerAs: 'vm'
+      })
         .when('/admin/subjects', {
         templateUrl: '/subjects/subjects.view.html',
         controller: 'subjectsCtrl',

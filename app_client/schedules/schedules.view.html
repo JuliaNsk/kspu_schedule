@@ -15,7 +15,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"> </a>
+                <a class="navbar-brand" href="#"></a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -48,10 +48,9 @@
     </nav>
     <div class="content">
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <button class="btn btn-primary  btn-round btn-fab btn-fab-mini pull-right btn-material"><a href="/admin/schedule/add-schedule">+</a></button>
-
+                <a href="/admin/schedule/add-schedule"><button class="btn btn-primary  btn-round btn-fab btn-fab-mini pull-right btn-material" data-toggle="modal" data-target="#myModal"> +</button></a>
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="purple">
                         <i class="material-icons">schedule</i>
@@ -70,12 +69,17 @@
                                 <tbody>
                                 <tr ng-repeat="schedule in vm.schedules">
                                     <td>{{schedule.organization.name}}</td>
+                                    <td>{{schedule.year}}</td>
                                     <td>
+                                        <a ng-href="/admin/schedule/{{schedule._id}}"><button class="btn btn-success btn-xs"
+                                                data-target="#edit-organization"><i
+                                                class="material-icons">remove_red_eye</i>
+                                        </button></a>
                                         <button class="btn btn-warning btn-xs" data-toggle="modal"
                                                 data-target="#edit-organization" ng-click="vm.editModal(organization)"><i
                                                 class="material-icons">edit</i>
                                         </button>
-                                        <button class="btn btn-danger btn-xs" ng-click="vm.removeOrganization(organization._id)">
+                                        <button class="btn btn-danger btn-xs" ng-click="vm.removeSchedule(schedule._id)">
                                             <i class="material-icons">delete</i>
                                         </button>
                                     </td>
@@ -89,3 +93,6 @@
         </div>
     </div>
 </div>
+
+
+

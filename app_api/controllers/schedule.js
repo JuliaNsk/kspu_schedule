@@ -24,6 +24,15 @@ module.exports.get = function(req, res) {
         });
 };
 
+module.exports.getById = function(req, res) {
+    Schedule
+        .findOne({_id: req.params.id})
+        .populate('organization')
+        .exec(function(err, subj) {
+            res.status(200).json(subj);
+        });
+};
+
 module.exports.delete = function(req, res) {
     Schedule
         .deleteOne({_id: req.params.id})
