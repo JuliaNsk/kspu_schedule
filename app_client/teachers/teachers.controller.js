@@ -4,8 +4,8 @@
         .module('kspuApp')
         .controller('teachersCtrl', teachersCtrl);
 
-    teachersCtrl.$inject = ['teachers', '$window', 'organizations'];
-    function teachersCtrl(teachers, $window, organizations) {
+    teachersCtrl.$inject = ['teachers', '$window', 'organizations', 'schedules'];
+    function teachersCtrl(teachers, $window, organizations, schedules) {
         var vm = this;
         vm.select = '';
         md.initMinimizeSidebar();
@@ -92,5 +92,16 @@
                 });
         };
 
+
+        vm.showTeacherSchedule = function () {
+            schedules.getSchedules()
+                .error(function (err) {
+                    alert(err);
+                })
+                .then(function (organizations) {
+                    vm.schedule = organizations.data
+                    console.log(vm.schedule)
+                })
+        }
     }
 })();

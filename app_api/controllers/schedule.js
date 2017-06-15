@@ -19,6 +19,7 @@ module.exports.get = function(req, res) {
     Schedule
         .find({})
         .populate('organization')
+        .populate('group')
         .exec(function(err, subj) {
             res.status(200).json(subj);
         });
@@ -27,7 +28,7 @@ module.exports.get = function(req, res) {
 module.exports.getById = function(req, res) {
     Schedule
         .findOne({_id: req.params.id})
-        .populate('organization')
+        // .populate('organization')
         .exec(function(err, subj) {
             res.status(200).json(subj);
         });

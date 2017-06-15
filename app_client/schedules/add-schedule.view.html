@@ -60,22 +60,13 @@
                         <h4 class="card-title">Новый розклад</h4>
                         <div class="table-responsive">
                             <div class="col-lg-5 col-md-5 col-sm-3">
-                                <select class="selectpicker" data-style="select-with-transition"  title="Обрати організацію..." data-size="7">
-                                    <option ng-repeat="organization in vm.organizations">{{organization.name}}</option>
-
-                                </select>
+                                <select name="singleSelect" ng-model="vm.schedule.organization" ng-options="org._id as org.name for org in vm.organizations"></select>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-3">
-                                <select class="selectpicker" data-style="select-with-transition"  title="Обрати номер групи..." data-size="7">
-                                    <option ng-repeat="group in vm.groups">{{group.number}}</option>
-
-                                </select>
+                                <select name="singleSelect" ng-model="vm.schedule.group" ng-options="org._id as org.number for org in vm.groups"></select>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-3">
-                                <select class="selectpicker" data-style="select-with-transition"  title="Обрати навчальний рік..." data-size="7">
-                                    <option ng-repeat="year in vm.years">{{year}}</option>
-
-                                </select>
+                                <select name="singleSelect" ng-model="vm.schedule.year" ng-options="y.year as y.title for y in vm.years"></select>
                             </div>
                             <table class="table table-striped">
                                 <thead>
@@ -102,7 +93,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.monday[0].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -121,7 +112,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.monday[1].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -139,7 +130,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.monday[2].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -157,7 +148,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.monday[3].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -175,7 +166,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.monday[4].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -193,7 +184,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.monday[5].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -212,7 +203,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.tuesday[0].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -230,7 +221,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.tuesday[1].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -248,7 +239,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.tuesday[2].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -266,7 +257,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.tuesday[3].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -284,7 +275,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.tuesday[4].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -297,12 +288,12 @@
 
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-3">
-                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[50].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
+                                            <select name="singleSelect" ng-model="vm.schedule.tuesday[5].teacher" ng-options="teach._id as teach.name for teach in vm.teachers"></select>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.tuesday[5].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -321,7 +312,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.wednesday[0].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -339,7 +330,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.wednesday[1].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -357,7 +348,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.wednesday[2].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -375,7 +366,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.wednesday[3].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -393,7 +384,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.wednesday[4].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -411,7 +402,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.wednesday[5].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -430,7 +421,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.thursday[0].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -448,7 +439,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.thursday[1].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -466,7 +457,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.thursday[2].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -484,7 +475,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.thursday[3].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -502,7 +493,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.thursday[4].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -520,7 +511,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.thursday[5].room"  class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -539,7 +530,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.friday[0].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -557,7 +548,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.friday[1].room" lass="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -575,7 +566,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.friday[2].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -593,7 +584,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.friday[3].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -611,7 +602,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.friday[4].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>
@@ -629,7 +620,7 @@
                                         <div class="col-lg-2 col-md-2 col-sm-3">
                                             <div class="form-group label-floating is-empty room_number">
                                                 <label class="control-label">Аудиторія</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" ng-model="vm.schedule.friday[5].room" class="form-control">
                                                 <span class="material-input"></span></div>
                                         </div>
                                     </td>

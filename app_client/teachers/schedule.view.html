@@ -1,10 +1,586 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<navigation></navigation>
+<div class="main-panel">
+    <nav class="navbar navbar-transparent navbar-absolute">
+        <div class="container-fluid">
+            <div class="navbar-minimize">
+                <button id="minimizeSidebar" class="btn btn-round btn-white btn-fill btn-just-icon">
+                    <i class="material-icons visible-on-sidebar-regular">more_vert</i>
+                    <i class="material-icons visible-on-sidebar-mini">view_list</i>
+                </button>
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="material-icons">dashboard</i>
+                            <p class="hidden-lg hidden-md">Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="material-icons">person</i>
+                            <p class="hidden-lg hidden-md">Profile</p>
+                        </a>
+                    </li>
+                    <li class="separator hidden-lg hidden-md"></li>
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group form-search is-empty">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="material-input"></span>
+                        <span class="material-input"></span></div>
+                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                        <i class="material-icons">search</i>
+                        <div class="ripple-container"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+
+        <div class="container-fluid">
+            <div class="row">
+                <button class="btn btn-primary btn-round btn-fab btn-fab-mini pull-right btn-material"
+                        ng-click="vm.createSchedule()"><i class="material-icons">done</i></button>
+
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="purple">
+                        <i class="material-icons">schedule</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">Розклад</h4>
+                        <div class="table-responsive">
+                            <div class="col-lg-4 col-md-4 col-sm-3">
+                                {{vm.schedule.organization.name}}
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-3">
+                                {{vm.schedule.group.number}}
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3">
+                                {{vm.schedule.year}}
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <tr>
+                                    <td class="day_name" rowspan="6">
+                                        <div>Понеділок</div>
+                                    </td>
+                                    <td class="subject_number">1</td>
+                                    <td class="tg-031e">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.monday[0].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.monday[0].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.monday[0].group}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.monday[0].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">2</td>
+                                    <td class="tg-031e">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.monday[1].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.monday[1].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.monday[1].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.monday[1].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">3</td>
+                                    <td class="tg-031e">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.monday[2].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.monday[2].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.monday[2].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.monday[2].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">4</td>
+                                    <td class="tg-031e">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.monday[3].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.monday[3].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.monday[3].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.monday[3].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">5</td>
+                                    <td class="tg-031e">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.monday[4].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.monday[4].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.monday[4].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.monday[4].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">6</td>
+                                    <td class="tg-031e">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.monday[5].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.monday[5].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.monday[5].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.monday[5].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="day_name" rowspan="6">
+                                        <div>Вівторок</div>
+                                    </td>
+                                    <td class="subject_number">1</td>
+                                    <td class="tg-031e">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.tuesday[0].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.tuesday[0].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.tuesday[0].group}}
+                                        </div><div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.tuesday[0].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">2</td>
+                                    <td class="tg-031e">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.tuesday[1].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.tuesday[1].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.tuesday[1].group}}
+                                        </div><div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.tuesday[1].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">3</td>
+                                    <td class="tg-031e">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.tuesday[2].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.tuesday[2].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.tuesday[2].group}}
+                                        </div><div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.tuesday[2].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">4</td>
+                                    <td class="tg-031e">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.tuesday[3].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.tuesday[3].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.tuesday[3].group}}
+                                        </div>  <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.tuesday[3].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">5</td>
+                                    <td class="tg-031e">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.tuesday[4].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.tuesday[4].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.tuesday[4].group}}
+                                        </div>   <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.tuesday[4].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">6</td>
+                                    <td class="tg-031e">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.tuesday[5].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.tuesday[5].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.tuesday[5].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.tuesday[5].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="day_name" rowspan="6">
+                                        <div>Середа</div>
+                                    </td>
+                                    <td class="subject_number">1</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.wednesday[0].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.wednesday[0].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.wednesday[0].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.wednesday[0].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">2</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.wednesday[1].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.wednesday[1].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.wednesday[1].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.wednesday[1].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">3</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.wednesday[2].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.wednesday[2].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.wednesday[2].group}}
+                                        </div>  <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.wednesday[2].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">4</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.wednesday[3].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.wednesday[3].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.wednesday[3].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.wednesday[3].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">5</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.wednesday[4].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.wednesday[4].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.wednesday[4].group}}
+                                        </div><div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.wednesday[4].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">6</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.wednesday[5].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.wednesday[5].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.wednesday[5].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.wednesday[5].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="day_name" rowspan="6">
+                                        <div>Четвер</div>
+                                    </td>
+                                    <td class="subject_number">1</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.thursday[0].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.thursday[0].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.thursday[0].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.thursday[0].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">2</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.thursday[1].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.thursday[1].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.thursday[1].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.thursday[1].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">3</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.thursday[2].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.thursday[2].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.thursday[2].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.thursday[2].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">4</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.thursday[3].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.thursday[3].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.thursday[3].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.thursday[3].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">5</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.thursday[4].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.thursday[4].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.thursday[4].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.thursday[4].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">6</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.thursday[5].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.thursday[5].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.thursday[5].group}}
+                                        </div>  <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.thursday[5].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="day_name" rowspan="6">
+                                        <div>П'ятниця</div>
+                                    </td>
+                                    <td class="subject_number">1</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.friday[0].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.friday[0].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.friday[0].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.friday[0].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">2</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.friday[1].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.friday[1].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.friday[1].group}}
+                                        </div>  <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.friday[1].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">3</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.friday[2].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.friday[2].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.friday[2].group}}
+                                        </div>  <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.friday[2].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">4</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.friday[3].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.friday[3].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.friday[3].group}}
+                                        </div><div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.friday[3].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">5</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.friday[4].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.friday[4].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.friday[4].group}}
+                                        </div> <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.friday[4].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject_number">6</td>
+                                    <td class="tg-yw4l">
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.friday[5].subject}}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-3">
+                                            {{vm.schedule.friday[5].teacher}}
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.friday[5].group}}
+                                        </div>  <div class="col-lg-2 col-md-2 col-sm-3">
+                                            {{vm.schedule.friday[5].room}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

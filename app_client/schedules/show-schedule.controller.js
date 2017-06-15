@@ -9,10 +9,10 @@
         var vm = this;
         vm.years = ['2015-2016', '2016-2017', '2017-2018'];
         vm.currentSchedule = $routeParams.id;
-        vm.schedule = {}
-        vm.subjects = {}
-        vm.groups = {}
-        vm.teachers = {}
+        vm.schedule = {};
+        vm.subjects = {};
+        vm.groups = {};
+        vm.teachers = {};
 
 
         md.initMinimizeSidebar();
@@ -30,7 +30,6 @@
                 })
                 .then(function (schedule) {
                     vm.schedule = schedule.data
-
                 });
         }
 

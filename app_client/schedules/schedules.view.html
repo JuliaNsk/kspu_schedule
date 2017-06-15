@@ -62,23 +62,25 @@
                                 <thead class="text-primary">
                                 <tr>
                                     <th>Організація</th>
+                                    <th>Група</th>
                                     <th>Навчальний рік</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="schedule in vm.schedules">
+                                <tr ng-repeat="schedule in vm.schedules ">
                                     <td>{{schedule.organization.name}}</td>
+                                    <td>{{schedule.group.number}}</td>
                                     <td>{{schedule.year}}</td>
                                     <td>
-                                        <a ng-href="/admin/schedule/{{schedule._id}}"><button class="btn btn-success btn-xs"
+                                        <a ng-href="/schedule/{{schedule._id}}"><button class="btn btn-success btn-xs"
                                                 data-target="#edit-organization"><i
                                                 class="material-icons">remove_red_eye</i>
                                         </button></a>
-                                        <button class="btn btn-warning btn-xs" data-toggle="modal"
-                                                data-target="#edit-organization" ng-click="vm.editModal(organization)"><i
+                                        <a ng-href="/admin/schedule/{{schedule._id}}"><button class="btn btn-warning btn-xs" data-toggle="modal"
+                                                data-target="#edit-organization" ng-click="vm.editSchedule(schedule._id)"><i
                                                 class="material-icons">edit</i>
-                                        </button>
+                                        </button></a>
                                         <button class="btn btn-danger btn-xs" ng-click="vm.removeSchedule(schedule._id)">
                                             <i class="material-icons">delete</i>
                                         </button>

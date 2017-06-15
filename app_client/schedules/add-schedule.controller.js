@@ -7,7 +7,7 @@
     addScheduleCtrl.$inject = ['$location', 'schedules', 'organizations', 'subjects', 'teachers', '$q', 'groups'];
     function addScheduleCtrl($location, schedules, organizations, subjects, teachers, $q, groups) {
         var vm = this;
-        vm.years = ['2015-2016', '2016-2017', '2017-2018'];
+        vm.years = [{title: '2015-2016', year: 2015}, {title: '2016-2017', year: 2016}, {title: '2017-2018', year: 2017}];
         vm.schedule = {
             monday: [],
             tuesday: [],
@@ -19,7 +19,7 @@
         md.initMinimizeSidebar();
         getInfo();
         function getInfo() {
-            $q.all([getSchedulesList(), getOrganizationsList(), getTeachersList(), getSubjectsList(), getGroupsList(), refresh()])
+            $q.all([getSchedulesList(), getOrganizationsList(), getTeachersList(),  getGroupsList(), getSubjectsList(), refresh()])
         }
         vm.schedules = [];
 
@@ -30,6 +30,7 @@
                 })
                 .then(function (schedules) {
                     vm.schedules = schedules.data
+
                 });
         }
 
@@ -50,6 +51,7 @@
                 })
                 .then(function (subjects) {
                     vm.subjects = subjects.data;
+                    $(".selectpicker").selectpicker('refresh');
                 });
         }
 
@@ -79,12 +81,13 @@
         }
 
         vm.createSchedule = function () {
+            console.log(vm.schedule)
             schedules.addSchedules(vm.schedule)
                 .error(function (err) {
                     alert(err);
                 })
                 .then(function (groups) {
-
+                    $location.path('/admin/schedules')
                 });
         }
 

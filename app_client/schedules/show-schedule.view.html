@@ -61,25 +61,13 @@
                         <h4 class="card-title">Новый розклад</h4>
                         <div class="table-responsive">
                             <div class="col-lg-5 col-md-5 col-sm-3">
-                                <select class="selectpicker" data-style="select-with-transition"
-                                        title="Обрати організацію..." data-size="7">
-                                    <option ng-repeat="organization in vm.organizations">{{organization.name}}</option>
-
-                                </select>
+                                {{vm.schedule.organization.name}}
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-3">
-                                <select class="selectpicker" data-style="select-with-transition"
-                                        title="Обрати номер групи..." data-size="7">
-                                    <option ng-repeat="group in vm.groups">{{group.number}}</option>
-
-                                </select>
+                                {{vm.schedule.group.number}}
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-3">
-                                <select class="selectpicker" data-style="select-with-transition"
-                                        title="Обрати навчальний рік..." data-size="7">
-                                    <option ng-repeat="year in vm.years">{{year}}</option>
-
-                                </select>
+                               {{vm.schedule.year}}
                             </div>
                             <table class="table table-striped">
                                 <thead>
