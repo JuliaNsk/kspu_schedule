@@ -50,26 +50,26 @@
                             })
                             $.each(schedule.tuesday, function (index, monday) {
                                 if (monday && monday.teacher === vm.currentTeacher) {
-                                    vm.schedule.monday[index]= monday
-                                    vm.schedule.monday[index].group = schedule.group.number
+                                    vm.schedule.tuesday[index]= monday
+                                    vm.schedule.tuesday[index].group = schedule.group.number
                                 }
                             })
                             $.each(schedule.wednesday, function (index, monday) {
                                 if (monday && monday.teacher === vm.currentTeacher) {
-                                    vm.schedule.monday[index]= monday
-                                    vm.schedule.monday[index].group = schedule.group.number
+                                    vm.schedule.wednesday[index]= monday
+                                    vm.schedule.wednesday[index].group = schedule.group.number
                                 }
                             })
                             $.each(schedule.thursday, function (index, monday) {
                                 if (monday && monday.teacher === vm.currentTeacher) {
-                                    vm.schedule.monday[index]= monday
-                                    vm.schedule.monday[index].group = schedule.group.number
+                                    vm.schedule.thursday[index]= monday
+                                    vm.schedule.thursday[index].group = schedule.group.number
                                 }
                             })
                             $.each(schedule.friday, function (index, monday) {
                                 if (monday && monday.teacher === vm.currentTeacher) {
-                                    vm.schedule.monday[index]= monday
-                                    vm.schedule.monday[index].group = schedule.group.number
+                                    vm.schedule.friday[index]= monday
+                                    vm.schedule.friday[index].group = schedule.group.number
                                 }
                             })
                         }
