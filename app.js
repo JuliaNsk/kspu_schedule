@@ -91,5 +91,5 @@ app.use(function(err, req, res, next) {
     });
 });
 
-
+app.disable('etag');
 module.exports = app;

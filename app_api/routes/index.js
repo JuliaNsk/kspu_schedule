@@ -41,6 +41,7 @@ router.put('/teachers/:id',  ctrlTeachers.update);
 
 router.post('/schedule',  ctrlSchedule.create);
 router.get('/schedule',  ctrlSchedule.get);
+router.get('/schedule/:id',  ctrlSchedule.getById);
 router.delete('/schedule/:id',  ctrlSchedule.delete);
 router.put('/schedule/:id',  ctrlSchedule.update);
 
