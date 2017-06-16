@@ -34,6 +34,16 @@
         controller: 'addScheduleCtrl',
         controllerAs: 'vm'
       })
+        .when('/schedule/:id', {
+        templateUrl: '/schedules/show-schedule.view.html',
+        controller: 'showScheduleCtrl',
+        controllerAs: 'vm'
+      })
+        .when('/admin/schedule/:id', {
+        templateUrl: '/schedules/edit-schedule.view.html',
+        controller: 'editScheduleCtrl',
+        controllerAs: 'vm'
+      })
         .when('/admin/subjects', {
         templateUrl: '/subjects/subjects.view.html',
         controller: 'subjectsCtrl',
@@ -52,6 +62,11 @@
         .when('/admin/teachers', {
         templateUrl: '/teachers/teachers.view.html',
         controller: 'teachersCtrl',
+        controllerAs: 'vm'
+      })
+        .when('/teacher/schedule/:id', {
+        templateUrl: '/teachers/schedule.view.html',
+        controller: 'teachersScheduleCtrl',
         controllerAs: 'vm'
       })
       .otherwise({redirectTo: '/'});

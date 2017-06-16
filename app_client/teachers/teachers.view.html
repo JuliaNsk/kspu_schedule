@@ -267,7 +267,10 @@
 
 <!---    Modal edit teacher ---- Modal edit teacher ---- Modal edit teacher ---- Modal edit teacher ----  Modal edit teacher ---- Modal edit teacher ---- Modal edit teacher      -->
 
-                                        <button class="btn btn-danger btn-xs" ng-click="vm.removeTeacher(teacher._id)"><i class="material-icons">delete</i></button>
+                                        <a ng-href="/teacher/schedule/{{teacher._id}}"><button class="btn btn-success btn-xs"
+                                                                                        data-target="#edit-organization"><i
+                                                class="material-icons">remove_red_eye</i>
+                                        </button></a>                                        <button class="btn btn-danger btn-xs" ng-click="vm.removeTeacher(teacher._id)"><i class="material-icons">delete</i></button>
                                     </td>
                                 </tr>
                                 </tbody>

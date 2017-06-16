@@ -4,8 +4,8 @@
         .module('kspuApp')
         .controller('schedulesCtrl', schedulesCtrl);
 
-    schedulesCtrl.$inject = ['$location', 'schedules', 'organizations'];
-    function schedulesCtrl($location, schedules, organizations) {
+    schedulesCtrl.$inject = ['$location', 'schedules', 'organizations', '$window'];
+    function schedulesCtrl($location, schedules, organizations, $window) {
         var vm = this;
         md.initMinimizeSidebar();
         getSchedulesList();
@@ -30,6 +30,16 @@
                 .then(function (organizations) {
                     vm.organizations = organizations.data
                 })
+        }
+
+        vm.removeSchedule = function (id) {
+            if ($window.confirm('Ви дійсно бажаєте видалити розклад?')) {
+                schedules.removeSchedules(id)
+                    .then(function () {
+                        vm.schedules = [];
+                        getSchedulesList()
+                    })
+            }
         }
     }
 

@@ -19,6 +19,10 @@
             });
         };
 
+        var getScheduleById = function (data) {
+            return $http.get('/api/schedule/' + data.id);
+        };
+
         var removeSchedules = function (data) {
             return $http.delete('/api/schedule/' + data);
         };
@@ -30,6 +34,7 @@
         return {
             addSchedules : addSchedules,
             getSchedules : getSchedules,
+            getScheduleById : getScheduleById,
             removeSchedules: removeSchedules,
             editSchedules: editSchedules
         };
